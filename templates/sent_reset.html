@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <h1>Password reset request sent</h1>
+        <p>An email with a link to confirm your password reset has been sent to {{ email|safe }}.</p>
+        <p>please follow the link to continue with your password reset</p>
+        <button onclick="window.location.href = '/login/';">Go to Login page</button>
+    </div>
+{% endblock %}

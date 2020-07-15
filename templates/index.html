@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+    <ul class="content">
+        {% if session['userid'] %}
+            <h1>Welcome back, {{ session['username'] }}!</h1>
+        {% endif %}
+        {% for post in posts %}
+            <div class="container_posts">
+                <li>
+                    <h2>{{ post.title|safe }}</h2>
+                    <p class="subtext">By <a href="{{ url_for('users_posts', username=post.username) }}">{{ post.username|safe }}</a> - {{ post.date }}</p>
+                    <p>
+                        {{ post.content|safe }}
+                    </p>
+                </li>
+            </div>
+        {% endfor %}
+    </ul>
+{% endblock %}
